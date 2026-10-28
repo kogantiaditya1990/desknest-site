@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeskNest: a tidy desktop for Windows</title>
+<meta name="description" content="DeskNest sorts the icons on your Windows desktop into translucent, blurred fences.">
+<style>
+  :root { --bg: #f4f6fb; --card: #ffffff; --ink: #1b1e28; --muted: #5b6275; --accent: #4f46e5; --line: #e2e6f0; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14151c; --card: #1d1f29; --ink: #f1f3f9; --muted: #a2a8bb; --accent: #8b8cff; --line: #2c2f3d; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
+  img.icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }
+  h1 { font-size: 2.4rem; margin: 20px 0 6px; letter-spacing: -.02em; }
+  .lead { color: var(--muted); font-size: 1.15rem; margin: 0 0 32px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; margin: 16px 0; }
+  .card h2 { font-size: 1.1rem; margin: 0 0 6px; }
+  .card p { margin: 0; color: var(--muted); }
+  a { color: var(--accent); }
+  footer { margin-top: 40px; color: var(--muted); font-size: .95rem; }
+</style>
+</head>
+<body>
+<main>
+  <img class="icon" src="icon.png" alt="DeskNest icon">
+  <h1>DeskNest</h1>
+  <p class="lead">A desktop organiser for Windows 10 and 11. It sorts the icons on your desktop into translucent, blurred <strong>fences</strong> that sit behind your windows.</p>
+
+  <div class="card"><h2>Fences, rules and pages</h2><p>Draw fences on the desktop, drag items between them, and let sorting rules file new items for you. Use several pages of fences and switch between them.</p></div>
+  <div class="card"><h2>Search and notes</h2><p>Search every fence, folder and note from the keyboard. Keep sticky notes and checklists right on the desktop.</p></div>
+  <div class="card"><h2>Backups you can restore anywhere</h2><p>Back up your layout once a day to a folder or to your own Google Drive, and get it all back on a new PC. DeskNest can only see the backup files it saves itself. <a href="privacy.html">Read the privacy policy</a>.</p></div>
+
+  <footer>
+    DeskNest is a desktop organiser for Windows. 
+    <a href="privacy.html">Privacy policy</a> ·
+    <a href="https://github.com/kogantiaditya1990/desknest-site/issues">Support</a>
+  </footer>
+</main>
+</body>
+</html>

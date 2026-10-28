@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeskNest privacy policy</title>
+<style>
+  :root { --bg: #f4f6fb; --card: #ffffff; --ink: #1b1e28; --muted: #5b6275; --accent: #4f46e5; --line: #e2e6f0; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14151c; --card: #1d1f29; --ink: #f1f3f9; --muted: #a2a8bb; --accent: #8b8cff; --line: #2c2f3d; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.65 "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 20px 80px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 6px; }
+  .updated { color: var(--muted); margin: 0 0 24px; }
+  p, li { color: var(--ink); }
+  a { color: var(--accent); }
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 20px; }
+</style>
+</head>
+<body>
+<main>
+  <p><a href="./">← DeskNest</a></p>
+  <h1>DeskNest privacy policy</h1>
+  <p class="updated">Last updated: 28 October 2026</p>
+
+  <p>DeskNest is a desktop organiser for Windows. It runs on your own PC. This page explains what it stores, and what happens to your data if you choose to sign in with Google.</p>
+
+  <h2>What stays on your PC</h2>
+  <p>DeskNest keeps its settings, your fences, rules, notes and snapshots in a folder on your PC (<code>%APPDATA%\DeskNest</code>). The developer does not run any server that receives this information, and DeskNest does not include analytics, advertising or tracking.</p>
+
+  <h2>If you sign in with Google</h2>
+  <p>Signing in is optional. It lets DeskNest save its daily backup to your own Google Drive.</p>
+  <ul>
+    <li><strong>What DeskNest asks for:</strong> only the <code>drive.file</code> permission. With it, DeskNest can see and manage <em>only the files it creates itself</em>. It cannot see, read or change any other file in your Google Drive.</li>
+    <li><strong>What it saves:</strong> one backup file per day, in a folder named "DeskNest Backups". A backup contains your DeskNest layout: fence names and positions, the names and locations of the desktop items inside them, your sorting rules, notes and settings.</li>
+    <li><strong>Where your sign-in is kept:</strong> a sign-in token is stored on your PC, encrypted so that only your Windows user account can read it. It is never sent anywhere except to Google.</li>
+    <li><strong>Who sees your data:</strong> only you and Google. Your backups go directly between your PC and your Google Drive. They are not sent to the developer or to any third party, and they are not used for advertising or sold.</li>
+    <li><strong>Your Google email address:</strong> DeskNest reads it once to show you which account is signed in, and keeps it only on your PC.</li>
+  </ul>
+
+  <h2>Stopping and deleting</h2>
+  <ul>
+    <li>Choose <strong>Sign out</strong> in DeskNest (Settings › Backup). This removes the sign-in from your PC and revokes DeskNest's access at Google.</li>
+    <li>You can also remove access at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
+    <li>To delete your backups, delete the "DeskNest Backups" folder in your Google Drive.</li>
+  </ul>
+
+  <h2>Google API Services User Data Policy</h2>
+  <div class="box">DeskNest's use and transfer of information received from Google APIs to any other app will adhere to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes">Google API Services User Data Policy</a>,
+  including the Limited Use requirements.</div>
+
+  <h2>Children</h2>
+  <p>DeskNest is not directed at children and does not knowingly collect information from anyone.</p>
+
+  <h2>Changes and contact</h2>
+  <p>If this policy changes, the new version will be published on this page with a new date. Questions can be asked by opening an issue at
+  <a href="https://github.com/kogantiaditya1990/desknest-site/issues">github.com/kogantiaditya1990/desknest-site/issues</a>.</p>
+</main>
+</body>
+</html>
