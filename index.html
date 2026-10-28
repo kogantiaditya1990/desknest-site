@@ -3,41 +3,130 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DeskNest: a tidy desktop for Windows</title>
-<meta name="description" content="DeskNest sorts the icons on your Windows desktop into translucent, blurred fences.">
+<title>DeskNest: a tidy, glass desktop for Windows</title>
+<meta name="description" content="DeskNest sorts the icons on your Windows desktop into translucent, blurred fences, files new things for you, and backs your layout up to your own Google Drive.">
+<link rel="icon" href="icon.png">
 <style>
-  :root { --bg: #f4f6fb; --card: #ffffff; --ink: #1b1e28; --muted: #5b6275; --accent: #4f46e5; --line: #e2e6f0; }
+  :root { --bg: #f4f6fb; --card: #ffffff; --ink: #1b1e28; --muted: #5b6275; --accent: #5b4cf0; --line: #e2e6f0; --shadow: 0 18px 50px rgba(40, 50, 110, .18); }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #14151c; --card: #1d1f29; --ink: #f1f3f9; --muted: #a2a8bb; --accent: #8b8cff; --line: #2c2f3d; }
+    :root { --bg: #12131a; --card: #1b1d27; --ink: #f1f3f9; --muted: #a2a8bb; --accent: #9a95ff; --line: #2b2e3d; --shadow: 0 18px 50px rgba(0, 0, 0, .5); }
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Segoe UI", system-ui, sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 56px 20px 80px; }
-  img.icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }
-  h1 { font-size: 2.4rem; margin: 20px 0 6px; letter-spacing: -.02em; }
-  .lead { color: var(--muted); font-size: 1.15rem; margin: 0 0 32px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; margin: 16px 0; }
-  .card h2 { font-size: 1.1rem; margin: 0 0 6px; }
-  .card p { margin: 0; color: var(--muted); }
   a { color: var(--accent); }
-  footer { margin-top: 40px; color: var(--muted); font-size: .95rem; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 22px; }
+  header.hero { position: relative; overflow: hidden; padding: 72px 0 56px; text-align: center; }
+  header.hero::before { content: ""; position: absolute; inset: -20% -10% auto; height: 520px; z-index: -1;
+    background: radial-gradient(40% 60% at 20% 30%, rgba(91, 76, 240, .28), transparent 70%), radial-gradient(40% 60% at 80% 20%, rgba(22, 196, 232, .26), transparent 70%); filter: blur(10px); }
+  .icon { width: 104px; height: 104px; border-radius: 24px; box-shadow: var(--shadow); }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; margin: 22px 0 12px; letter-spacing: -.03em; }
+  .lead { max-width: 640px; margin: 0 auto 28px; color: var(--muted); font-size: 1.2rem; }
+  .hero-shot { margin-top: 36px; }
+  .shot { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--card); }
+  section { padding: 44px 0; }
+  .feature { display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; align-items: center; }
+  .feature.flip { grid-template-columns: 1.25fr 1fr; }
+  .feature.flip .copy { order: 2; }
+  .feature h2 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 10px; letter-spacing: -.02em; }
+  .feature p { color: var(--muted); margin: 0 0 12px; }
+  .feature ul { color: var(--muted); padding-left: 1.2em; margin: 0; }
+  .feature li { margin: 4px 0; }
+  .narrow { max-width: 380px; margin: 0 auto; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
+  .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .98rem; }
+  footer { border-top: 1px solid var(--line); margin-top: 24px; padding: 28px 0 56px; color: var(--muted); font-size: .95rem; text-align: center; }
+  @media (max-width: 800px) {
+    .feature, .feature.flip { grid-template-columns: 1fr; gap: 22px; }
+    .feature.flip .copy { order: 0; }
+    .grid3 { grid-template-columns: 1fr; }
+    header.hero { padding-top: 48px; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <img class="icon" src="icon.png" alt="DeskNest icon">
-  <h1>DeskNest</h1>
-  <p class="lead">A desktop organiser for Windows 10 and 11. It sorts the icons on your desktop into translucent, blurred <strong>fences</strong> that sit behind your windows.</p>
+<header class="hero">
+  <div class="wrap">
+    <img class="icon" src="icon.png" alt="DeskNest icon">
+    <h1>A tidy, glass desktop for Windows</h1>
+    <p class="lead">DeskNest sorts the icons on your desktop into translucent, blurred <strong>fences</strong>, files new things for you, and keeps your layout safe in your own Google Drive.</p>
+    <div class="hero-shot"><img class="shot" src="img/settings-look.jpg" alt="DeskNest settings with a glass look" width="1308" height="903"></div>
+  </div>
+</header>
 
-  <div class="card"><h2>Fences, rules and pages</h2><p>Draw fences on the desktop, drag items between them, and let sorting rules file new items for you. Use several pages of fences and switch between them.</p></div>
-  <div class="card"><h2>Search and notes</h2><p>Search every fence, folder and note from the keyboard. Keep sticky notes and checklists right on the desktop.</p></div>
-  <div class="card"><h2>Backups you can restore anywhere</h2><p>Back up your layout once a day to a folder or to your own Google Drive, and get it all back on a new PC. DeskNest can only see the backup files it saves itself. <a href="privacy.html">Read the privacy policy</a>.</p></div>
+<main class="wrap">
+  <section class="feature">
+    <div class="copy">
+      <h2>Fences that look like glass</h2>
+      <p>A fence is a calm panel that holds a group of icons. The desktop blurs through it, lit by a soft rim of light, and it fades away when you switch pages.</p>
+      <ul>
+        <li>Draw a fence by right-dragging on the desktop</li>
+        <li>Drag icons between fences, roll them up, or make tabs</li>
+        <li>Pick any colour, with a real colour picker</li>
+      </ul>
+    </div>
+    <img class="shot" src="img/tour-fences.jpg" alt="Fences holding grouped icons" width="884" height="658" loading="lazy">
+  </section>
 
-  <footer>
-    DeskNest is a desktop organiser for Windows. 
+  <section class="feature flip">
+    <div class="copy">
+      <h2>Sorting that does the work</h2>
+      <p>Rules file new items by what they are. Add ready-made ones in one click: screenshots, invoices and receipts, big files, installers.</p>
+      <ul>
+        <li>Rules can put icons in a fence or move files to a folder or an archive</li>
+        <li>Every automatic move comes with an <strong>Undo</strong> button</li>
+        <li>What's already on the desktop is filed straight away</li>
+      </ul>
+    </div>
+    <img class="shot" src="img/settings-rules.jpg" alt="Smart rule suggestions" width="1308" height="903" loading="lazy">
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <h2>Find anything in a moment</h2>
+      <p>Press a hotkey to search every fence, folder portal and note. Open the result, show it in Explorer, or jump to the fence it lives in.</p>
+    </div>
+    <img class="shot" src="img/tour-search.jpg" alt="Search results for the word invoice" width="884" height="658" loading="lazy">
+  </section>
+
+  <section class="feature flip">
+    <div class="copy">
+      <h2>Backed up, and easy to bring back</h2>
+      <p>Sign in with Google and DeskNest saves a backup of your whole layout once a day to your own Drive. On a new PC, sign in and restore.</p>
+      <ul>
+        <li>No extra app to install</li>
+        <li>DeskNest only sees the backup files it saves itself, never the rest of your Drive</li>
+        <li>Or back up to any folder you choose</li>
+      </ul>
+    </div>
+    <img class="shot" src="img/settings-backup.jpg" alt="Backup settings with Google sign-in" width="1308" height="903" loading="lazy">
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <h2>Always one click away</h2>
+      <p>The tray menu groups everything by what it does: search, peek, create, arrange pages, undo, snapshots. Pages and arrangements open as their own glass panels.</p>
+    </div>
+    <div class="narrow"><img class="shot" src="img/tray-menu.jpg" alt="The DeskNest tray menu" width="374" height="848" loading="lazy"></div>
+  </section>
+
+  <section>
+    <div class="grid3">
+      <div class="card"><h3>Private by design</h3><p>Everything stays on your PC unless you sign in to back up to your own Google Drive. No accounts, no ads, no tracking. <a href="privacy.html">Privacy policy</a></p></div>
+      <div class="card"><h3>Made for Windows 10 and 11</h3><p>No admin rights needed. Works with high-contrast themes and screen readers, and with several monitors.</p></div>
+      <div class="card"><h3>Stays up to date</h3><p>DeskNest tells you when a newer version is out, and installs it only after you click Update.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    DeskNest is a desktop organiser for Windows. ·
     <a href="privacy.html">Privacy policy</a> ·
     <a href="https://github.com/kogantiaditya1990/desknest-site/issues">Support</a>
-  </footer>
-</main>
+  </div>
+</footer>
 </body>
 </html>
